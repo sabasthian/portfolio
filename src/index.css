@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Design tokens
+   Terang = default. Gelap = mengikuti sistem, atau dipaksa lewat
+   atribut data-theme pada <html> (tombol tema di header).
+   ------------------------------------------------------------------ */
+:root {
+  --bg: #F5F6F3;
+  --surface: #FFFFFF;
+  --ink: #171A17;
+  --muted: #59605A;
+  --line: #E0E3DD;
+  --accent: #2E6A4E;
+  --ok: #1F9D63;
+  --code-str: #8A5A12;
+  --primary: #171A17;      /* tombol utama, pill aktif */
+  --on-primary: #F5F6F3;   /* teks di atas --primary */
+  --elev: 0 1px 2px rgba(23, 26, 23, .04), 0 10px 30px rgba(23, 26, 23, .07);
+  color-scheme: light;
+}
+
+/* Gelap: lapisan dibuat lebih jelas (bg < surface < line) dan tombol utama
+   memakai hijau aksen, bukan putih, supaya serasi dengan mode terang. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1210;
+    --surface: #181D19;
+    --ink: #ECEFEB;
+    --muted: #A3ACA4;
+    --line: #2B332D;
+    --accent: #8FD1AE;
+    --ok: #57CF93;
+    --code-str: #E6BE7E;
+    --primary: #8FD1AE;
+    --on-primary: #0F1210;
+    --elev: 0 1px 2px rgba(0, 0, 0, .4), 0 14px 34px rgba(0, 0, 0, .45);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0F1210;
+  --surface: #181D19;
+  --ink: #ECEFEB;
+  --muted: #A3ACA4;
+  --line: #2B332D;
+  --accent: #8FD1AE;
+  --ok: #57CF93;
+  --code-str: #E6BE7E;
+  --primary: #8FD1AE;
+  --on-primary: #0F1210;
+  --elev: 0 1px 2px rgba(0, 0, 0, .4), 0 14px 34px rgba(0, 0, 0, .45);
+  color-scheme: dark;
+}
+
+/* Token -> utility Tailwind: bg-bg, bg-surface, text-ink, text-muted,
+   border-line, text-accent, fill-accent, shadow-card, font-mono, dst. */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-ok: var(--ok);
+  --color-code-str: var(--code-str);
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+  --shadow-card: var(--elev);
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+@theme {
+  --animate-blink: blink 1.1s steps(1) infinite;
+  --animate-ping-soft: ping-soft 2.4s infinite;
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+  @keyframes ping-soft {
+    0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--ok) 55%, transparent); }
+    70%, 100% { box-shadow: 0 0 0 8px transparent; }
+  }
+}
+
+/* Sengaja di luar @layer: style dasar halaman (misalnya bawaan host/iframe)
+   tidak boleh menimpa warna, font, dan ukuran teks utama. */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  h1, h2, h3 { text-wrap: balance; }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  ::selection { background: color-mix(in srgb, var(--accent) 25%, transparent); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; }
+}
+
+/* Container dengan gutter yang aman untuk notch HP */
+@utility wrap {
+  max-width: 1040px;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* List dengan penanda garis hijau */
+@utility list-dash {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 7px;
+  & > li { position: relative; padding-left: 18px; }
+  & > li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .75em;
+    width: 8px;
+    height: 1.5px;
+    background: var(--accent);
+  }
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
+@layer components {
+  /* nomor baris di code card */
+  .code-pre { counter-reset: ln; }
+  .ln::before {
+    counter-increment: ln;
+    content: counter(ln);
+    display: inline-block;
+    width: 3.4em;
+    padding-right: 1.2em;
+    text-align: right;
+    color: var(--muted);
+    opacity: .55;
+  }
+
+  /* titik-titik halus di belakang hero */
+  .hero-dots::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: radial-gradient(var(--line) 1.2px, transparent 1.3px);
+    background-size: 22px 22px;
+    -webkit-mask-image: radial-gradient(ellipse 55% 65% at 80% 62%, #000 25%, transparent 72%);
+    mask-image: radial-gradient(ellipse 55% 65% at 80% 62%, #000 25%, transparent 72%);
+  }
+
+  /* motif garis untuk kartu sertifikat */
+  .cert-pattern {
+    background-color: var(--bg);
+    background-image: repeating-linear-gradient(135deg, var(--line) 0 1px, transparent 1px 12px);
+  }
+}

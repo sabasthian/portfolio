@@ -1,0 +1,201 @@
+// Daftar proyek.
+// Foto: taruh gambar di public/screenshots/<slug>/ lalu daftarkan di `images`.
+//   - Foto pertama dipakai sebagai sampul kartu.
+//   - Bisa berupa string ('screenshots/krb/01.webp') atau objek dengan caption 2 bahasa.
+// Selama `images` kosong, kartu & popup memakai ilustrasi bawaan (`preview`).
+
+const GH = 'https://github.com/sabasthian';
+const REPO_PROCURE = 'https://github.com/sabasthian/it-procurement-request-system';
+
+export const projects = [
+  {
+    slug: 'krb',
+    featured: true,
+    cats: ['fullstack'],
+    preview: 'krb',
+    images: [],
+    cardTags: ['Next.js 16', 'TypeScript', 'Payload CMS 3', 'PostgreSQL 16'],
+    links: [{ kind: 'gh', href: GH }],
+    en: {
+      title: 'Komunitas Reptil Bandung',
+      meta: 'Full stack',
+      desc: 'Public website, admin CMS and contest judging system with blind judging, weighted scoring and live results.',
+      badge: 'Featured project',
+      sub: 'Community platform and contest judging system',
+      facts: [['Role', 'Full Stack Developer'], ['Type', 'Non-commercial']],
+      tags: ['Next.js 16', 'React 19', 'TypeScript', 'Payload CMS 3', 'PostgreSQL 16', 'Tailwind CSS 4', 'Cloudflare R2'],
+      sections: [
+        { h: 'overview', p: 'A non-commercial platform for the Bandung reptile community. It combines a public website, an admin content management system (CMS), a reptile catalog, educational resources, articles, galleries, event registration, membership management and a contest judging system.' },
+        { h: 'stack', layers: [['Front-end', 'Next.js 16 · React 19 · TypeScript · Tailwind CSS 4'], ['Back-end', 'Payload CMS 3 · Next.js 16'], ['Database', 'PostgreSQL 16'], ['Storage', 'Cloudflare R2']] },
+        { h: 'key features', list: ['Reptile catalog, educational resources, articles and galleries', 'Event registration and membership management', 'Contest judging with QR/PIN authentication and blind judging', 'Weighted scoring, live results and versioned score corrections'] },
+        { h: 'security & reliability', list: ['Role-based access control (RBAC) and multi-factor authentication (MFA)', 'Maker-checker review workflows', 'Append-only audit logs and data validation', 'Privacy controls aligned with UU PDP (Indonesia’s Personal Data Protection Law)', 'Scheduled jobs and automated daily backups'] },
+        { h: 'testing', figures: [['137', 'integration tests'], ['63', 'end-to-end tests']] },
+      ],
+    },
+    id: {
+      title: 'Komunitas Reptil Bandung',
+      meta: 'Full stack',
+      desc: 'Website publik, CMS admin, dan sistem penjurian kontes dengan blind judging, skor berbobot, dan hasil live.',
+      badge: 'Proyek unggulan',
+      sub: 'Platform komunitas dan sistem penjurian kontes',
+      facts: [['Peran', 'Full Stack Developer'], ['Jenis', 'Non-komersial']],
+      sections: [
+        { h: 'ringkasan', p: 'Platform non-komersial untuk Komunitas Reptil Bandung. Platform ini menggabungkan website publik, sistem manajemen konten (CMS) admin, katalog reptil, materi edukasi, artikel, galeri, pendaftaran acara, manajemen keanggotaan, dan sistem penjurian kontes.' },
+        { h: 'teknologi', layers: [['Front-end', 'Next.js 16 · React 19 · TypeScript · Tailwind CSS 4'], ['Back-end', 'Payload CMS 3 · Next.js 16'], ['Database', 'PostgreSQL 16'], ['Penyimpanan', 'Cloudflare R2']] },
+        { h: 'fitur utama', list: ['Katalog reptil, materi edukasi, artikel, dan galeri', 'Pendaftaran acara dan manajemen keanggotaan', 'Penjurian kontes dengan autentikasi QR/PIN dan blind judging', 'Skor berbobot, hasil live, dan koreksi skor berversi'] },
+        { h: 'keamanan & keandalan', list: ['Role-based access control (RBAC) dan multi-factor authentication (MFA)', 'Alur review maker-checker', 'Audit log append-only dan validasi data', 'Kontrol privasi sesuai UU PDP (Undang-Undang Pelindungan Data Pribadi)', 'Scheduled job dan backup harian otomatis'] },
+        { h: 'pengujian', figures: [['137', 'integration test'], ['63', 'end-to-end test']] },
+      ],
+    },
+  },
+  {
+    slug: 'procure',
+    cats: ['fullstack'],
+    preview: 'procure',
+    images: [
+      { src: 'screenshots/procure/01-employee.webp', caption: { en: 'Employee dashboard: submit and track requests', id: 'Dashboard employee: ajukan dan lacak permintaan' } },
+      { src: 'screenshots/procure/02-supervisor.webp', caption: { en: 'Supervisor dashboard: review pending requests', id: 'Dashboard supervisor: review permintaan yang menunggu' } },
+      { src: 'screenshots/procure/03-procurement.webp', caption: { en: 'Procurement dashboard: process approved requests', id: 'Dashboard procurement: proses permintaan yang disetujui' } },
+      { src: 'screenshots/procure/04-admin.webp', caption: { en: 'Admin dashboard: users, roles and request monitoring', id: 'Dashboard admin: user, peran, dan monitoring permintaan' } },
+      { src: 'screenshots/procure/05-login.webp', caption: { en: 'Login page', id: 'Halaman login' } },
+    ],
+    cardTags: ['React', 'Express', 'MySQL', 'Sequelize'],
+    links: [{ kind: 'code', href: REPO_PROCURE, primary: true }, { kind: 'gh', href: GH }],
+    en: {
+      title: 'IT Procurement Request System',
+      meta: 'Personal project · Public repo',
+      desc: 'Full-stack app for submitting, approving and tracking IT equipment requests across four roles, secured with JWT and RBAC.',
+      badge: 'Personal project',
+      sub: 'Multi-role approval workflow for IT equipment requests',
+      facts: [['Role', 'Full Stack Developer'], ['Code', 'Public on GitHub']],
+      tags: ['React', 'Vite', 'React Router', 'Node.js', 'Express.js', 'MySQL', 'Sequelize', 'JWT', 'bcryptjs'],
+      sections: [
+        { h: 'overview', p: 'A full-stack web application that centralizes requesting, reviewing, approving and tracking IT equipment procurement, with a separate dashboard for each of its four roles.' },
+        { h: 'stack', layers: [['Front-end', 'React · Vite · React Router DOM'], ['Back-end', 'Node.js · Express.js · REST API'], ['Database', 'MySQL · Sequelize ORM'], ['Tools', 'Postman · Git & GitHub']] },
+        { h: 'workflow', list: ['Employee submits a request: PENDING', 'Supervisor approves it, or rejects it with a reason: APPROVED or REJECTED', 'Procurement processes the approved request: PROCESSING', 'The request is closed: COMPLETED'] },
+        { h: 'roles', list: ['Employee: create requests, search and filter them, track their status', 'Supervisor: review pending requests, approve or reject with a reason', 'Procurement: process approved requests and mark them completed', 'Administrator: monitor users and requests, view statistics, manage roles, activate or deactivate accounts'] },
+        { h: 'security', list: ['JWT-protected REST API endpoints', 'Role-based authorization middleware (RBAC)', 'Password hashing with bcryptjs'] },
+      ],
+    },
+    id: {
+      title: 'Sistem Pengajuan Pengadaan IT',
+      meta: 'Proyek pribadi · Repo publik',
+      desc: 'Aplikasi full-stack untuk mengajukan, menyetujui, dan melacak permintaan perangkat IT dengan empat peran, diamankan dengan JWT dan RBAC.',
+      badge: 'Proyek pribadi',
+      sub: 'Alur persetujuan multi-peran untuk pengajuan perangkat IT',
+      facts: [['Peran', 'Full Stack Developer'], ['Kode', 'Publik di GitHub']],
+      sections: [
+        { h: 'ringkasan', p: 'Aplikasi web full-stack yang memusatkan proses pengajuan, review, persetujuan, dan pelacakan pengadaan perangkat IT, dengan dashboard terpisah untuk masing-masing dari empat peran.' },
+        { h: 'teknologi', layers: [['Front-end', 'React · Vite · React Router DOM'], ['Back-end', 'Node.js · Express.js · REST API'], ['Database', 'MySQL · Sequelize ORM'], ['Tools', 'Postman · Git & GitHub']] },
+        { h: 'alur kerja', list: ['Employee mengajukan permintaan: PENDING', 'Supervisor menyetujui, atau menolak dengan alasan: APPROVED atau REJECTED', 'Procurement memproses permintaan yang disetujui: PROCESSING', 'Permintaan ditutup: COMPLETED'] },
+        { h: 'peran', list: ['Employee: membuat pengajuan, mencari dan memfilter, melacak status', 'Supervisor: mereview pengajuan yang menunggu, menyetujui atau menolak dengan alasan', 'Procurement: memproses pengajuan yang disetujui dan menandainya selesai', 'Administrator: memantau user dan pengajuan, melihat statistik, mengatur peran, mengaktifkan atau menonaktifkan akun'] },
+        { h: 'keamanan', list: ['Endpoint REST API dilindungi JWT', 'Middleware otorisasi berbasis peran (RBAC)', 'Hashing password dengan bcryptjs'] },
+      ],
+    },
+  },
+  {
+    slug: 'stream',
+    cats: ['fullstack'],
+    preview: 'stream',
+    images: [],
+    cardTags: ['React 19', 'Express', 'MySQL', 'Tailwind CSS 4'],
+    links: [{ kind: 'gh', href: GH }],
+    en: {
+      title: 'Streaming Platform Clone',
+      meta: 'Personal project · Full stack',
+      desc: 'Netflix-inspired streaming app with JWT authentication, an Atomic Design component structure and a synced watchlist.',
+      badge: 'Personal project',
+      sub: 'Netflix-inspired streaming web app',
+      facts: [['Role', 'Full Stack Developer'], ['Type', 'Personal project']],
+      tags: ['React 19', 'Vite', 'Express.js', 'MySQL', 'JWT', 'bcrypt.js', 'Axios', 'Tailwind CSS 4'],
+      sections: [
+        { h: 'overview', p: 'A fully responsive streaming platform clone inspired by Netflix, with React 19 and Vite on the front end and Express.js with MySQL on the back end.' },
+        { h: 'stack', layers: [['Front-end', 'React 19 · Vite · Tailwind CSS 4 · Axios'], ['Back-end', 'Express.js · JWT · bcrypt.js'], ['Database', 'MySQL']] },
+        { h: 'key features', list: ['Atomic Design structure (atoms, molecules, organisms, pages) for reusable, maintainable components', 'JWT authentication with bcrypt.js password hashing and custom middleware for private routes and API endpoints', 'Movie data fetched with Axios and filtered in memory for Trending, Top Rated, Continue Watching and New Releases, cutting redundant API calls', '"Daftar Saya" watchlist with real-time add and remove, kept in sync across pages with React state', 'Dark, mobile-first UI built from scratch with Tailwind CSS v4 for mobile, tablet and desktop'] },
+      ],
+    },
+    id: {
+      title: 'Streaming Platform Clone',
+      meta: 'Proyek pribadi · Full stack',
+      desc: 'Aplikasi streaming terinspirasi Netflix dengan autentikasi JWT, struktur komponen Atomic Design, dan watchlist yang tersinkron.',
+      badge: 'Proyek pribadi',
+      sub: 'Aplikasi web streaming terinspirasi Netflix',
+      facts: [['Peran', 'Full Stack Developer'], ['Jenis', 'Proyek pribadi']],
+      sections: [
+        { h: 'ringkasan', p: 'Klon platform streaming terinspirasi Netflix yang sepenuhnya responsif, dengan React 19 dan Vite di front end serta Express.js dan MySQL di back end.' },
+        { h: 'teknologi', layers: [['Front-end', 'React 19 · Vite · Tailwind CSS 4 · Axios'], ['Back-end', 'Express.js · JWT · bcrypt.js'], ['Database', 'MySQL']] },
+        { h: 'fitur utama', list: ['Struktur Atomic Design (atoms, molecules, organisms, pages) agar komponen reusable dan mudah dirawat', 'Autentikasi JWT dengan hashing password bcrypt.js dan middleware khusus untuk route privat dan endpoint API', 'Data film diambil dengan Axios lalu difilter di memori untuk Trending, Top Rated, Continue Watching, dan New Releases sehingga panggilan API berulang berkurang', 'Watchlist "Daftar Saya" dengan tambah dan hapus real-time yang tersinkron antarhalaman lewat React state', 'UI gelap mobile-first yang dibuat dari nol dengan Tailwind CSS v4 untuk mobile, tablet, dan desktop'] },
+      ],
+    },
+  },
+  {
+    slug: 'iot',
+    cats: ['iot', 'academic'],
+    preview: 'iot',
+    images: [],
+    cardTags: ['Arduino Uno', 'ESP32-CAM', 'Telegram Bot'],
+    links: [{ kind: 'gh', href: GH }],
+    en: {
+      title: 'IoT Fish Pond Monitoring & Control System',
+      meta: 'Final year project · Jan – Apr 2026',
+      desc: 'Real-time monitoring of water temperature, level and clarity, with automated care and a Telegram Bot.',
+      badge: 'Final year project',
+      sub: 'Real-time pond monitoring with remote control over Telegram',
+      facts: [['Role', 'Developer'], ['Period', 'Jan – Apr 2026']],
+      tags: ['Arduino Uno', 'ESP32-CAM', 'Sensors', 'Telegram Bot'],
+      sections: [
+        { h: 'overview', p: 'An IoT system that monitors water temperature, water level and water clarity in real time, and automates pond care to reduce manual work.' },
+        { h: 'stack', layers: [['Hardware', 'Arduino Uno · ESP32-CAM · sensors'], ['Integration', 'Telegram Bot']] },
+        { h: 'key features', list: ['Real-time monitoring with Arduino Uno and ESP32-CAM', 'Integrated sensors with automated water temperature and water-quality control', 'Scheduled fish feeding', 'Telegram Bot for remote monitoring, instant notifications and feeding commands', 'Camera-based visual monitoring of pond conditions'] },
+      ],
+    },
+    id: {
+      title: 'Sistem Monitoring & Kontrol Kolam Ikan Berbasis IoT',
+      meta: 'Proyek akhir · Jan – Apr 2026',
+      desc: 'Monitoring suhu, ketinggian, dan kejernihan air secara real-time, dengan perawatan otomatis dan Telegram Bot.',
+      badge: 'Proyek akhir',
+      sub: 'Monitoring kolam real-time dengan kendali jarak jauh lewat Telegram',
+      facts: [['Peran', 'Developer'], ['Periode', 'Jan – Apr 2026']],
+      tags: ['Arduino Uno', 'ESP32-CAM', 'Sensor', 'Telegram Bot'],
+      sections: [
+        { h: 'ringkasan', p: 'Sistem IoT yang memantau suhu, ketinggian, dan kejernihan air secara real-time, serta mengotomatiskan perawatan kolam untuk mengurangi pekerjaan manual.' },
+        { h: 'teknologi', layers: [['Hardware', 'Arduino Uno · ESP32-CAM · sensor'], ['Integrasi', 'Telegram Bot']] },
+        { h: 'fitur utama', list: ['Monitoring real-time dengan Arduino Uno dan ESP32-CAM', 'Integrasi sensor dengan kontrol suhu dan kualitas air otomatis', 'Pemberian pakan ikan terjadwal', 'Telegram Bot untuk monitoring jarak jauh, notifikasi instan, dan perintah pemberian pakan', 'Monitoring visual kondisi kolam berbasis kamera'] },
+      ],
+    },
+  },
+  {
+    slug: 'plant',
+    cats: ['academic'],
+    preview: 'plant',
+    images: [],
+    cardTags: ['Web app', 'Expert system'],
+    links: [{ kind: 'gh', href: GH }],
+    en: {
+      title: 'Expert System for Ornamental Plant Care',
+      meta: 'Thesis · Web app',
+      desc: 'Web-based expert system for diagnosing ornamental plant diseases and optimizing their maintenance.',
+      badge: 'Thesis',
+      sub: 'Web-based disease diagnosis and maintenance guidance',
+      facts: [['Role', 'Developer'], ['Type', 'Thesis']],
+      tags: ['Web app', 'Expert system'],
+      sections: [
+        { h: 'overview', p: 'A web-based expert system for diagnosing diseases and optimizing the maintenance of ornamental plants in Parongpong.' },
+      ],
+    },
+    id: {
+      title: 'Sistem Pakar Perawatan Tanaman Hias',
+      meta: 'Skripsi · Aplikasi web',
+      desc: 'Sistem pakar berbasis web untuk mendiagnosis penyakit tanaman hias dan mengoptimalkan perawatannya.',
+      badge: 'Skripsi',
+      sub: 'Diagnosis penyakit dan panduan perawatan berbasis web',
+      facts: [['Peran', 'Developer'], ['Jenis', 'Skripsi']],
+      tags: ['Aplikasi web', 'Sistem pakar'],
+      sections: [
+        { h: 'ringkasan', p: 'Sistem pakar berbasis web untuk mendiagnosis penyakit dan mengoptimalkan perawatan tanaman hias di Parongpong.' },
+      ],
+    },
+  },
+];
+
+export const projectsBySlug = Object.fromEntries(projects.map((p) => [p.slug, p]));
