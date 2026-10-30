@@ -50,9 +50,10 @@ export const dict = {
 
   // filter proyek
   'f.all': { en: 'All', id: 'Semua' },
-  'f.fullstack': { en: 'Full-stack', id: 'Full-stack' },
-  'f.iot': { en: 'IoT', id: 'IoT' },
-  'f.academic': { en: 'Academic', id: 'Akademik' },
+  'f.Learning & Practice': { en: 'Learning & Practice', id: 'Pembelajaran & Latihan' },
+  'f.Featured Projects': { en: 'Featured Projects', id: 'Proyek Unggulan' },
+ // 'f.fullstack': { en: 'Full-stack', id: 'Full-stack' },
+ // 'f.iot': { en: 'IoT', id: 'IoT' },
   'p.featured': { en: 'Featured', id: 'Unggulan' },
   'p.hint': { en: 'Swipe for more →', id: 'Geser untuk melihat lainnya →' },
 
@@ -67,8 +68,8 @@ export const dict = {
   'ui.prevL': { en: 'Previous item', id: 'Item sebelumnya' },
   'ui.nextL': { en: 'Next item', id: 'Item berikutnya' },
   'ui.close': { en: 'Close details', id: 'Tutup detail' },
-  'ui.gh': { en: 'GitHub profile', id: 'Profil GitHub' },
-  'ui.code': { en: 'Source code', id: 'Source code' },
+  'ui.gh': { en: 'GitHub Code', id: 'GitHub Code' },
+  'ui.code': { en: 'Live Demo', id: 'Demo langsung' },
   'ui.cert': { en: 'Open certificate', id: 'Buka sertifikat' },
   'ui.toDark': { en: 'Switch to dark theme', id: 'Ganti ke tema gelap' },
   'ui.toLight': { en: 'Switch to light theme', id: 'Ganti ke tema terang' },
@@ -90,3 +91,4 @@ export const dict = {
   },
   'c.phone': { en: 'Phone / WhatsApp', id: 'Telepon / WhatsApp' },
 };
+
